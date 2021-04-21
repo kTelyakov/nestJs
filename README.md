@@ -41,3 +41,41 @@ export class ProductController {
 getHello(): string {}
 ```
 
+### Провайдеры
+
+```
+@Injectable // Указание что его можно юзать как провайдер
+export class AppService {
+  getHello () {
+    return 'Hello'
+  }
+}
+```
+Типы провайдеров:
+- useClass
+- useFactory
+- useExisting
+
+Типы Scope:
+- Default @Injectable({ scope: DEFAULT })
+
+#### Инжектим конфиги .env
+
+1) инициализируем в app.module.ts
+```
+@Module({
+  imports: [
+    ConfigModule.forRoot(), // Вот тут
+  ],
+  controllers: [AppController],
+  providers: [AppService],
+})
+
+// В нужном классе в конструкторе:
+constructor(private readonly configService: ConfigService)
+
+someMethod() {
+  return this.configService.get('название .env переменной')
+}
+
+```

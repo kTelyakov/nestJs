@@ -80,4 +80,4 @@ someMethod() {
 
 ```
 https://coursehunter.net/course/nestjs-s-nulya-sovremennyy-backend-na-typescript-i-node-js
-Закончил на уроке 25
+Закончил на уроке 28
